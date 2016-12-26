@@ -82,7 +82,7 @@ for (lowerbound in lower.bounds){
 }
 
 duration <- Sys.time()-begin # how long does the simulation take
-# write.csv(table,"table.csv") # save the results of the simulation to a file
+# write.csv(table,"table12.csv") # save the results of the simulation to a file
 
 # return power (or alpha for d = 0) per lower bound & effect size
 results <- data.frame(matrix(data=NA,nrow=length(lower.bounds)*length(effect.sizes),ncol=3))
@@ -114,9 +114,10 @@ for (i in lower.bounds){
 
 results$efficiency <- round((results$fixedN/results$average.N-1)*100,2) # fixed N vs COAST
 results[order(results$effectsize),]
-# write.csv(results[order(results$effectsize),],"results.csv")
+# write.csv(results[order(results$effectsize),],"table12_summary.csv")
 
-# Section 2: --------------------------------------------------------------------
+
+# SECTION 2: --------------------------------------------------------------------
 # Percentage of fixed N required as lower bound to achieve certain power --------
 number.of.experiments <- 5000
 effect.sizes <- c(.2,.25,.30,.35,.4,.45,.50) # cohen's d
@@ -167,7 +168,9 @@ for (effect.size in effect.sizes){
 }
 
 duration <- Sys.time()-begin # how long does the simulation take
-# write.csv(table,"requiredlowerbound.csv") # save the results of the simulation to a file
+# write.csv(table,"lowerbound.csv") # save the results of the simulation to a file
+# This takes a long time to simulate, at least on my laptop. 
+# Feel free to download the file from here: https://www.dropbox.com/s/8eawogo5vjiqg64/lowerbound.csv?dl=0
 
 
 # return power per lower bound & effect size
@@ -208,5 +211,4 @@ for (i in lower.bounds){
 x$efficiency  <- round((x$fixedN/x$average.N-1)*100,2) # fixed N vs COAST
 results <- x[order(x$effectsize),]
 results$effectsize <- factor(results$effectsize)
-# write.csv(results,"requiredlb_results.csv") 
-# This takes a long time to simulate, at least on my laptop. Hence the CSV file is available for download.
+# write.csv(results,"lowerbound_summary.csv")
