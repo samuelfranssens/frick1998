@@ -9,7 +9,9 @@
 # The second section of this script calculates how many observations one would need to achieve about .80 power with COAST.
 # Result: a lower bound of about 55% of the N required by a fixed N stopping rule seems enough to achieve .80 power.
 
-# The script starts with a function to calculate p values and other statistics: ---------------------------------
+# Both simulations also save estimates of Cohen's d.
+
+# The script starts with a function to calculate p values and other statistics: ----------------------
 differences <- function(x1,x2,ci = 0.95) {
   mean1 <- mean(x1)
   mean2 <- mean(x2)
