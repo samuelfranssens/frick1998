@@ -117,8 +117,8 @@ results[order(results$effectsize),]
 # write.csv(results[order(results$effectsize),],"table12_summary.csv")
 
 
-# SECTION 2: --------------------------------------------------------------------
-# Percentage of fixed N required as lower bound to achieve certain power --------
+# SECTION 2: -------------------------------------------------------------------
+# Percentage of fixed N required as lower bound to achieve certain power -------
 number.of.experiments <- 5000
 effect.sizes <- c(.2,.25,.30,.35,.4,.45,.50) # cohen's d
 lower.bounds <- c(.40,.45,.50,.55,.60,.65,.70) # percentage of fixed N sample size
